@@ -12,7 +12,7 @@ pipeline {
             steps {
                 // Get some code from a GitHub repository
                 git url: 'https://github.com/matthcol/movieapijava2021',
-                    branch: 'dev'
+                    branch: 'master'
 
                 // Run Maven on a Unix agent.
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
@@ -30,5 +30,11 @@ pipeline {
                 }
             }
         }
+		stage {
+			steps {
+				sh './scriptDeploys.sh'
+			}
+		}
+		
     }
 }
