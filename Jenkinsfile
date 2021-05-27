@@ -30,7 +30,7 @@ pipeline {
                 }
             }
         }
-		stage {
+		stage('Store') {
 			steps {
 				sh './scriptDeploys.sh'
 			}
